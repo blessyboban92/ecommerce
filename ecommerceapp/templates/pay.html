@@ -1,0 +1,35 @@
+
+{% load static %}
+
+<html>
+ <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center">Payment Page</h1>
+    <form action= "{% url 'payment_app:Pays' %}" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="cardNumber">Card Number</label>
+        <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number">
+      </div>
+      <div class="form-group">
+        <label for="expirationDate">Expiration Date</label>
+        <input type="text" class="form-control" id="expirationDate" placeholder="MM/YY">
+      </div>
+      <div class="form-group">
+        <label for="securityCode">Security Code</label>
+        <input type="text" class="form-control" id="securityCode" placeholder="CVC">
+      </div>
+      <div class="form-group">
+        <label for="nameOnCard">Name on Card</label>
+        <input type="text" class="form-control" id="nameOnCard" placeholder="Enter name as it appears on card">
+      </div>
+  <button onclick="location.href='{% url 'payment_app:Pays' %}">Pay</button>
+
+
+    </form>
+  </div>
+</body>
+</html>
